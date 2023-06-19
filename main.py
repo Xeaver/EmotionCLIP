@@ -35,7 +35,6 @@ def main():
     ##################
     args = DefaultArgs(
         exp_id='default',
-        debug_mode=False
     )
 
     parser = argparse.ArgumentParser()

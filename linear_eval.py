@@ -50,7 +50,7 @@ def extract_features(
     dataloader: DataLoader, 
     args: EvalArgs,
     split: str,
-    data_type='video',
+    data_type: str = 'video',
 ):
     feature_extractor = model.encode_video if data_type == 'video' else model.encode_image
     tdataloader = tqdm(dataloader, desc=f'Extracting features ({split})', unit_scale=dataloader.batch_size)
@@ -274,17 +274,7 @@ def main():
             C=8,
             solver='sag',
             class_weight=None
-            # class_weight={k: v for k, v in enumerate([4.0, 15.0, 15.0, 3.0, 1.0, 6.0, 3.0])}
         )
-    elif args.dataset == 'caer':
-        linear_clf = LogisticRegression(
-            random_state=args.seed,
-            max_iter=2000,
-            C=10,
-            solver='sag',
-            class_weight=None
-        )
-        linear_clf = OneVsRestClassifier(linear_clf)
     elif args.dataset == 'emotic':
         linear_clf = LogisticRegression(
             random_state=args.seed,
@@ -326,17 +316,6 @@ def main():
         weighted_f1 = f1_score(y_test, p_test, average='weighted') * 100
         acc = accuracy_score(y_test, p_test) * 100
         logger.info(f'[MELD test] weighted F1: {weighted_f1:.2f} acc: {acc:.2f}')
-    elif args.dataset == 'caer':
-        p_val = np.argmax(p_val, axis=1)
-        p_test = np.argmax(p_test, axis=1)
-        # val
-        acc = accuracy_score(y_val, p_val) * 100
-        bacc = balanced_accuracy_score(y_val, p_val) * 100
-        logger.info(f'[CAER val] acc: {acc:.2f} balanced acc: {bacc:.2f}')
-        # test
-        acc = accuracy_score(y_test, p_test) * 100
-        bac = balanced_accuracy_score(y_test, p_test) * 100
-        logger.info(f'[CAER test] acc: {acc:.2f} balanced acc: {bac:.2f}')
     elif args.dataset == 'emotic':
         # val
         mAP = average_precision_score(y_val, p_val, average='macro') * 100
