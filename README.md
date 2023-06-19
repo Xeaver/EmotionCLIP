@@ -31,7 +31,7 @@ The code is built with following libraries:
 - rich
 - termcolor
 
-Extra setup is required for data preprocessing. Please refer to [PREPROCESSING.md](preprocessing/PREPROCESSING.md).
+Extra setup is required for data preprocessing. Please refer to [preprocessing](preprocessing/).
 
 ## Usage
 ### Testing
@@ -47,7 +47,7 @@ python linear_eval.py \
 
 ### Training
 We use the weight provided by OpenCLIP as the starting point for our training. Please download the weight [here](https://github.com/mlfoundations/open_clip/releases/download/v0.2-weights/vit_b_32-laion2b_e16-af8dbd0c.pth) and put it under `src/pretrained`.
-To do training on the youtube video dataset with default settings, run
+To do training on the YouTube video dataset with default settings, run
 ```
 python main.py \
   --video-path <path_to_the_video_frames_folder> \
