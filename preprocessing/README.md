@@ -20,7 +20,9 @@ pip install youtube-search-python
 
 ### To setup the punctuation model to regroup the transcripts, run the following code:
 
-`pip install deepmultilingualpunctuation`
+```
+pip install deepmultilingualpunctuation
+```
 
 ### Then, you may need [ffmpeg](https://ffmpeg.org/) for video processing.
 
@@ -30,19 +32,25 @@ We use the following default setting but you may change them as needed.
 
 1. You can seach for videos on YouTube using:
 
-   `python search_youtube.py`
+   ```
+   python search_youtube.py
+   ```
 
    You can optionally find the list used in the paper [here](https://drive.google.com/file/d/1Uk7KQLvAo041he-TOhWDiyI7i-ufw-Im/view?usp=sharing).
 
 2. Download the videos using:
 
-   `python download_videos.py --source 'youtube' --fps 8`
+   ```
+   python download_videos.py --source 'youtube' --fps 8
+   ```
 
    Note: there is a bug in the dependency which is noted in `download_videos.py`.
 
    You can optionally store all the frames in hdf5 format using:
 
-   `python frames_to_hdf5.py `
+   ```
+   python frames_to_hdf5.py
+   ```
 
 3. Generate human bounding boxes using:
 
@@ -53,11 +61,15 @@ We use the following default setting but you may change them as needed.
 
 4. Regroup the transcript using:
 
-   `python regroup_transcripts.py`
+   ```
+   python regroup_transcripts.py
+   ```
 
    Note: if you get "You need to have sentencepiece installed to convert a slow tokenizer to a fast one.", you can fix it using:
 
-   `pip install sentencepiece`
+   ```
+   pip install sentencepiece
+   ```
 
 5. To speed up the training, you may optionally pre-compute the emotion scores and logits of all captions using:
 
