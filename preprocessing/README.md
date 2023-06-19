@@ -32,7 +32,7 @@ We use the following default setting but you may change them as needed.
 
    `python search_youtube.py`
 
-   You can optionally find the list used in the paper [here]().
+   You can optionally find the list used in the paper [here](https://drive.google.com/file/d/1Uk7KQLvAo041he-TOhWDiyI7i-ufw-Im/view?usp=sharing).
 
 2. Download the videos using:
 

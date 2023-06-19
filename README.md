@@ -36,7 +36,7 @@ Extra setup is required for data preprocessing. Please refer to [preprocessing](
 ## Usage
 ### Testing
 
-The pre-trained EmotionCLIP model can be downloaded [here](). 
+The pre-trained EmotionCLIP model can be downloaded [here](https://drive.google.com/file/d/1iWA7KfiR1JjRi-hD6R4LK5cug1FMcblD/view?usp=drive_link). 
 We follow the linear-probe evaluation protocol employed in CLIP.
 To test the pre-trained model on a specific dataset, run
 ```
@@ -53,7 +53,7 @@ python main.py \
   --video-path <path_to_the_video_frames_folder> \
   --caption-path <path_to_the_video_caption_folder> \
   --sentiment-path <path_to_the_sentiment_logits_file> \
-  --index-path <path_to_the_index_file> \
+  --index-path <path_to_the_index_file>
 ```
 
 # Acknowledgments
